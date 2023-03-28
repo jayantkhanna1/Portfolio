@@ -1,0 +1,129 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Cyber Security</title>
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+     
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="{%static 'css/cyber.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <div>
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+    </div>
+    <!-- From -->
+    <div id="form">
+        <div>
+            <h2>Enter Required Information</h2>
+            <p id="information">After you enter required information you can downlaod a '.txt' file with certain number of password combination search your password in it, If you find your password in there you might wanna change it</p>
+            <form action="findpass" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                    <div class="contact-form-flex" id="contact-form-flex-1">
+                        <div>
+                            <label class="contact-label" for="fname">YOUR FIRST NAME</label><br>
+                            <input class="contact-input" autocomplete="off" type="text" required name="fname" id="fname">
+                        </div>
+                        <div>
+                            <label class="contact-label" for="lname">YOUR LAST NAME</label><br>
+                            <input class="contact-input" autocomplete="off" type="text" required name="lname" id="lname">
+                        </div>
+                    </div>
+                    <div class="contact-form-flex" id="contact-form-flex-2">
+                        <div>
+                            <label class="contact-label" for="date">Date:</label><br>
+                            <select required class="contact-input" name="date" id="date">
+                                <option selected="selected" disabled="disabled" value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="contact-label" for="month">Month:</label><br>
+                            <select required class="contact-input" name="month" id="month">
+                                <option selected="selected" disabled="disabled" value=""></option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="contact-label" for="year">Year:</label><br>
+                            <select required class="contact-input" name="year" id="year">
+                                <option selected="selected" disabled="disabled" value=""></option>
+                                {%for x in years%}
+                                <option value="{{x}}">{{x}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                    <input type="submit" id="contact-me-submit" value="Download">
+                    
+                </form>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footer">
+            {%include 'footer.html'%}
+            {%block content4%}
+            {%endblock%}
+        </div>
+</body>
+</html>

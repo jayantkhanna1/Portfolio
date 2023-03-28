@@ -1,0 +1,79 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Login page</title>
+
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .private{
+            color: #ff014f !important;
+        }
+        .home{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+    </div>
+    <div id="login-form">
+        <h2>Login</h2>
+        <p>This is a private space for the owner of this site</p>
+        <p id="pass-error">{%for message in messages%}{{message}}{%endfor%}</p>
+        <form action="login" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <input type="email" name="id" required placeholder="Enter id"><br>
+            <div id="password_div"><input id="password" type="password" name="pass" required placeholder="Enter password"><i onclick="showpass()" id="showpass" class="far fa-eye"></i><i onclick="hidepass()" id="hidepass" class="far fa-eye-slash"></i></div><br>
+            <input type="submit" value="Login">
+        </form>
+        <a href="forgotpass">Forgot Password</a>
+        <a href="index">Back to main page</a>
+    </div>
+    <div id="footer">
+        {%include 'footer.html'%}
+        {%block content4%}
+        {%endblock%}
+    </div>
+    <script>
+        if(document.getElementById('pass-error').innerHTML==""){
+            document.getElementById('pass-error').style.display="none"
+        }
+        else{
+            document.getElementById('pass-error').style.display="block"
+            document.getElementById('showpass').style.top="510px"
+            document.getElementById('hidepass').style.top="510px"
+        }
+        function showpass(){
+            document.getElementById('password').type='text';
+            document.getElementById('showpass').style.display='none';
+            document.getElementById('hidepass').style.display='block';
+        }
+        function hidepass(){
+            document.getElementById('password').type='password';
+            document.getElementById('showpass').style.display='block';
+            document.getElementById('hidepass').style.display='none';
+        }
+    </script>
+</body>
+</html>

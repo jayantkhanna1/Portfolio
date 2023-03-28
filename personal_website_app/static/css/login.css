@@ -1,0 +1,116 @@
+#login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#login-form input{
+    outline: none;
+    background-color: #191b1e;
+    border-radius: 6px;
+    height: 55px;
+    border: 2px solid #191b1e;
+    padding: 0 15px;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #c4cfde;;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    width: 90%;
+}
+#login-form input:focus{
+    border: 2px solid #f02981;
+}
+#login-form input[type=submit]{
+    text-decoration: none;
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    background:linear-gradient(to right bottom, #212428, #16181c);
+    color: #f02981;
+    padding: 20px 60px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+    text-align: center;
+    transition: top ease 0.7s;
+    position: relative;
+    top: 0;
+    width: 95%;
+    outline: none;
+}
+#login-form h2{
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.private{
+    color: #f02981;
+}
+#login-form p{
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    color: #fe1f4f;
+}
+#login-form a{
+    margin-top: 30px;
+    font-size: 17px;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: #fe1f4f;
+}
+#pass-error{
+    margin-top: -20px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #3c2023;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: red;
+    font-family: sans-serif;
+}
+#password{
+    position: relative;
+}
+#password_div{
+    position: relative;
+}
+#showpass,#hidepass{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    color: #f02981;
+}
+#hidepass{
+    display: none;
+}
+@media screen and (max-width: 500px) {
+    #login-form h2{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    #showpass,#hidepass{
+        position: absolute;
+        top: 20px;
+        right: 0;
+        color: #f02981;
+    }
+    #login-form a{
+        margin-top: 30px;
+        font-size: 13px;
+        text-decoration: none;
+        font-weight: 500;
+        font-family: sans-serif;
+        color: #fe1f4f;
+    }
+}

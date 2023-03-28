@@ -1,0 +1,479 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Home</title>
+
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Flickity -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+   
+    <style>
+        #mypic-footer{
+            width: fit-content !important;
+            height: 80px !important;
+        }
+        #mypic{
+            height: 80px !important;
+        }
+    </style>
+</head>
+    <body>
+        <div>
+            {%include 'header.html'%}
+            {%block content1%}
+            {%endblock%}
+        </div>
+        <div id="home">
+            <div id="home-left-info">
+                <div id="top-info">
+                    <div id="svg_border"><i class="far fa-user" id="svg"></i></div>
+                    <h2>Hi, I am <br><span id="console"></span></h2>
+                    <p>I am a Full-stack django web developer from Uttarakhand, India</p>
+                    <div class="links"><i class="fas fa-phone-alt svg-a"></i><a href="tel:+918755429982">+91 8755429982</a><br></div>
+                    <div class="links"><i class="far fa-envelope svg-a" ></i><a href="mailto:jayantkhanna3105@gmail.com" id="email">jayantkhanna3105@gmail.com</a><br></div>
+                    <div class="links"><i class="fas fa-map-marker-alt svg-a"></i><a href="">Uttarakhand,India</a><br></div>
+                    <div class="links"><i class="fa-brands fa-github" style="color: #fe1f4f;"></i><a href="https://github.com/jayantkhanna1">jayantkhanna1</a><br></div>
+                </div>
+                <div id="bottom-info">
+                    <p>Download my curriculum vitae:</p>
+                    <div id="bottom-link">
+                        <a href="{%static 'cv/resume.pdf' %}" download target="_blank" id="download-cv">Download CV</a>
+                        <a href="mailto:jayantkhanna3105@gmail.com" id="push-left">Contact me</a>
+                    </div>
+                </div>
+            </div>
+            <div id="home-right-info">
+                <img src="{%static 'images/main-img.jpg'%}" alt="jayant's pic">
+            </div>
+        </div>
+        <div id="expierence">
+            <div id="expierence-heading"  data-aos="fade-up">
+                <h2>My Experience</h2><br>
+            </div>
+            <p id="year-exp"> Over&nbsp;<span id="years">2</span>&nbsp;years of Experience</p>
+            <div id="expierence-flex">
+                <div class="carousel" data-flickity='{ "wrapAround": true }'>
+                    <div onclick="window.open('http://jayantkhanna.herokuapp.com/')" class="carousel-cell">
+                        <img src="{%static 'images/portfolio.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            My Personal Portfolio
+                        </div>
+                      </div>
+                      <div onclick="location.href='http://medically-project.herokuapp.com/';" class="carousel-cell">
+                        <img src="{%static 'images/medically.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            A Hospital based website
+                        </div>
+                    </div>
+                      <div onclick="window.open('https://github.com/jayantkhanna1/backdoor')" class="carousel-cell">
+                        <img src="{%static 'images/backdoor.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            A Python Sockets based backdoor
+                        </div>
+                      </div>
+                      <div class="carousel-cell">
+                        <img src="{%static 'images/arvr.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            A Website for interior designers 
+                        </div>
+                      </div>
+                      <div onclick="window.open()" class="carousel-cell">
+                        <img src="{%static 'images/Forms.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            Google Forms Clone website built using DJango
+                        </div>
+                      </div>
+                      <div onclick="window.open('https://jayantkhanna1.github.io/array-visualizer/')" class="carousel-cell">
+                        <img src="{%static 'images/arrayVisualizer.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            A Website to visually show different sorting techniques 
+                        </div>
+                      </div>
+                      <div onclick="location.href='http://hrable.herokuapp.com'" class="carousel-cell">
+                        <img src="{%static 'images/hrable.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            A Website to automate HR workflow can add jobs, Onboarding, Offboarding, and more 
+                        </div>
+                      </div>
+                      <div onclick="location.href = 'http://encryptex.herokuapp.com'" class="carousel-cell">
+                        <img src="{%static 'images/encryptex.png'%}" alt="Error" />
+                        <div class="image_carousel_text" style="width:725px;">
+                            An online chat application built using Django where user can also send encrypted images that only his/her friend can open
+                        </div>
+                      </div>
+                      <div onclick="window.open('https://github.com/jayantkhanna1/Leetcode-bot')" class="carousel-cell">
+                        <img src="{%static 'images/leetcode.png'%}" alt="Error" />
+                        <div class="image_carousel_text">
+                            A Leetcode Bot that can automatically solve questions
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div id="resume">
+            <div  data-aos="fade-up">
+                <div id="resume-heading">
+                    <h2>My Resume</h2>
+                </div>
+                <div id="resume-header">
+                    <a href="javascript:void(0)" style="color: #fe1f4f;width:80%;" id="r1" onclick="change_col_res_head(1)">Education</a>
+                    <a href="javascript:void(0)" id="r2" onclick="change_col_res_head(2)">Skills</a>
+                    <a href="javascript:void(0)" id="r3" onclick="change_col_res_head(3)">Accomplishments</a>
+                    <a href="javascript:void(0)" id="r4" onclick="change_col_res_head(4)">Job Experience</a>
+                </div>
+            </div>
+            <!-- RES 1 -->
+            <div id="edu-time-main" class="res1" data-aos="fade-up">
+                <div class="timeline-education">
+                    {% for x in edu_info%}
+                    <div class="timeline-container right">
+                        <div class="content">
+                            <div class="class-per">
+                                <h2>{{x.name}}</h2>
+                                <p class="per">{{x.per_got}}&nbsp;/&nbsp;{{x.per_total}}</p>
+                            </div>
+                            <p class="year-edu">{{x.year_from}}&nbsp;-&nbsp;{{x.year_too}}</p>
+                            <p class="info-edu">
+                            {{x.comment}}    
+                            </p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="timeline-education">
+                    {%for x in job_info reversed%}
+                    <div class="timeline-container right">
+                        <div class="content">
+                            <div class="class-per">
+                                <h2>{{x.name}}</h2>
+                            </div>
+                            <p class="year-edu">{{x.year_from}}&nbsp;-&nbsp;{{x.year_too}}</p>
+                            <p class="info-edu">
+                                {{x.comment}}
+                            </p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+            <!-- RES 2 -->
+            <div id="res-skills-main" class="res2">
+                <h2>My Skills</h2>
+                <div id="res-skills">
+                    <div id="skill-block-1">
+                        {%for x in skill_2%}
+                        <div>
+                            <div class="skill-info">
+                                <p>{{x.name}}</p>
+                                <p>{{x.per}}</p>
+                            </div>
+                            <div class="container-skills">
+                                <div class="skill-level" style="width:{{x.per}};">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <div id="skill-block-2">
+                        {%for x in skill_1%}
+                        <div>
+                            <div class="skill-info">
+                                <p>{{x.name}}</p>
+                                <p>{{x.per}}</p>
+                            </div>
+                            <div class="container-skills">
+                                <div class="skill-level" style="width:{{x.per}};">
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            <!-- RES 3 accomplishments -->
+            <div id="acomplishments-main" style="display: none;" class="res3">
+                <h2>My Accomplishments</h2>
+                {%include 'accomplishments.html'%}
+                {%block content2%}
+                {%endblock%}
+            </div>
+            <!-- RES 4 -->
+            <div id="edu-time-main" style="display: none;" class="res4">
+                <div class="timeline-education">
+                    {% for x in edu_info%}
+                    <div class="timeline-container right">
+                        <div class="content">
+                            <div class="class-per">
+                                <h2>{{x.name}}</h2>
+                                <p class="per">{{x.per_got}}&nbsp;/&nbsp;{{x.per_total}}</p>
+                            </div>
+                            <p class="year-edu">{{x.year_from}}&nbsp;-&nbsp;{{x.year_too}}</p>
+                            <p class="info-edu">
+                            {{x.comment}}    
+                            </p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="timeline-education">
+                    {%for x in job_info reversed%}
+                    <div class="timeline-container right">
+                        <div class="content">
+                            <div class="class-per">
+                                <h2>{{x.name}}</h2>
+                            </div>
+                            <p class="year-edu">{{x.year_from}}&nbsp;-&nbsp;{{x.year_too}}</p>
+                            <p class="info-edu">
+                                {{x.comment}}
+                            </p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div id="pricing">
+            <div id="pricing-heading" data-aos="fade-up">
+                <h2>Freelancing</h2>
+            </div>
+            <div id="pricing-tabs" data-aos="fade-up">
+                <a href="javascript:void(0)" style="color: #fe1f4f;width:100%;" onclick="change_price_col(1)" id="p1">Website Development</a>
+                <a href="javascript:void(0)" id="p2" onclick="change_price_col(2)">CyberSecurity and Ethical hacking</a>
+                <a href="javascript:void(0)" id="p3" onclick="change_price_col(3)">AR/VR Development</a>
+            </div>
+            <div id="pricing-1" class="pricing-info" data-aos="fade-up" data-aos="fade-up">
+                <div class="p-info-head-price">
+                    <h2>Website Development</h2>
+                    <p>Depends <sub style="font-size: 12px;">on Project</sub></p>
+                </div>
+                <div class="p-info-message">
+                    I have developed websites for small and large companies, including several startups. Freelance clients from around the world have hired me to build e-commerce websites, Blog Websites, Personal websites, etc.
+                </div>
+                <div class="p-ticks-main">
+                    <div class="p-ticks">
+                        <div><i class="fas fa-check"></i>&nbsp;Html, Css, Js on Front-end</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Django on Back-end</div>
+                        <div><i class="fas fa-check"></i>&nbsp;MySql, Sqlite, Postgresql</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Figma, Adobe XD</div>
+                    </div>
+                    <div class="p-ticks">
+                        <div><i class="fas fa-check"></i>&nbsp;jQuery, Bootstrap, Ajax</div>
+                        <div><i class="fas fa-check"></i>&nbsp;ORM, Api integration</div>
+                        <div><i class="fas fa-check"></i>&nbsp;MongoDB, Redis, Oracle</div>
+                        <div><i class="fas fa-check"></i>&nbsp;AR/VR Integration</div>
+                    </div>
+                </div>
+                <div class="pricing-button">
+                    <a href="mailto:jayantkhanna3105@gmail.comsubject=Want%20to%20Hire%20you%20as%20a%20freelancer&body=Hello%20I%20would%20like%20to%20hire%20you%20as%20a%20freelancer%20for%Website%20developement">ORDER NOW <span>></span></a>
+                </div>
+            </div>
+            <div id="pricing-2" class="pricing-info">
+                <div class="p-info-head-price">
+                    <h2>CyberSecurity</h2>
+                    <p>Depends<sub style="font-size: 12px;">on Project</sub></p>
+                </div>
+                <div class="p-info-message">
+                I am a CyberSecurity enthusiast and have made several projects to further educate people on dangers of UnEthical Hacking. I have also made various tools to teach people about Ethical hacking and power of social engineering. 
+                </div>
+                <div class="p-ticks-main">
+                    <div class="p-ticks">
+                        <div><i class="fas fa-check"></i>&nbsp;Python Sockets</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Social Engineering</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Email, Message spoofing</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Pentest Report</div>
+                    </div>
+                    <div class="p-ticks">
+                        <div><i class="fas fa-check"></i>&nbsp;Wireshark</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Network Penetration</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Wireless Attacks</div>
+                        <div><i class="fas fa-check"></i>&nbsp;MITM attacks</div>
+                    </div>
+                </div>
+                <div class="pricing-button">
+                    <a href="mailto:jayantkhanna3105@gmail.com?subject=Want%20to%20Hire%20you%20as%20a%20freelancer&body=Hello%20I%20would%20like%20to%20hire%20you%20as%20a%20freelancer%20for%20CyberSecurity">ORDER NOW <span>></span></a>
+                </div>
+            </div>
+            <div id="pricing-3" class="pricing-info">
+                <div class="p-info-head-price">
+                    <h2>AR VR Developement</h2>
+                    <p>Depends<sub style="font-size: 12px;">on Project</sub></p>
+                </div>
+                <div class="p-info-message">
+                I am new to this field and still learning about AR VR. Soon i will be able to develop AR/VR apps for both Freelancing and Job.    
+                </div>
+                <div class="p-ticks-main">
+                    <div class="p-ticks">
+                        <div><i class="fas fa-check"></i>&nbsp;Vectary</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Plane Detection</div>
+                        <div><i class="fas fa-check"></i>&nbsp;QR code AR</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Creating 3D models</div>
+                    </div>
+                    <div class="p-ticks">
+                        <div><i class="fas fa-check"></i>&nbsp;Unity</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Avatar creation</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Integrating AR/VR with Websites</div>
+                        <div><i class="fas fa-check"></i>&nbsp;Lottie Animations AR</div>
+                    </div>
+                </div>
+                <div class="pricing-button">
+                    <a href="mailto:jayantkhanna3105@gmail.comsubject=Want%20to%20Hire%20you%20as%20a%20freelancer&body=Hello%20I%20would%20like%20to%20hire%20you%20as%20a%20freelancer%20for%AR/VR%20developement">ORDER NOW <span>></span></a>
+                </div>
+            </div>
+        </div>
+        <!-- Contact me  -->
+        <div id="contact">
+            <div id="contact-heading" data-aos="fade-up">
+                <h2>Connect with me</h2>
+            </div>
+            <div id="contact-info" data-aos="fade-up">
+                <div id="contact-info-left">
+                    <div id="contact-info-left-img">
+                        <img src="{%static 'images/shake-hands.jpeg'%}" alt="">
+                    </div>
+                    <h2>Jayant Khanna</h2>
+                    <p>Full-Stack Developer</p>
+                    <p>I am available for freelance work. Connect with me via call or E-mail</p>
+                    <a href="tel:+918755429982">Phone: <span>+91 8755429982</span></a><br>
+                    <a href="mailto:jayantkhanna3105@gmail.com">E-mail: <span>jayantkhanna3105@gmail.com</span></a>
+                    <p id="social-media">Find me on</p>
+                    <div id="contact-me-links">
+                        <div id="insta" onclick="insta()"><i class="fab fa-instagram"></i></div>
+                        <div id="github" onclick="github()"><i class="fab fa-github"></i></div>
+                        <div id="linkedln" onclick="linkedln()"><i class="fab fa-linkedin-in"></i></div>
+                    </div>
+                </div>
+                <div id="contact-info-right">
+                   <form action="home" method="POST" onsubmit="return check_form()" enctype="multipart/form-data">
+                    {%csrf_token%}
+                        <div id="contact-form-flex">
+                            <div>
+                                <label class="contact-label" for="name">YOUR NAME</label><br>
+                                <input class="contact-input" autocomplete="off" type="text" name="name" id="name">
+                            </div>
+                            <div>
+                                <label class="contact-label" for="number">PHONE NUMBER</label><br>
+                                <input class="contact-input" autocomplete="off" type="number" name="number" id="number">
+                            </div>
+                        </div>
+                        <label class="contact-label" for="email-form">EMAIL</label><br>
+                        <input autocomplete="off" class="contact-input" type="email" name="email" id="email-form"><br>
+                        <label class="contact-label" for="subject">SUBJECT</label><br>
+                        <input autocomplete="off" class="contact-input" type="text" name="subject" id="subject"><br>
+                        <label class="contact-label" for="message">MESSAGE</label><br>
+                        <textarea class="contact-input" name="message" id="message" cols="30" rows="10"></textarea><br>
+                        <input type="submit" id="contact-me-submit" value="Send Message">
+                    </form>
+                    <div id="error">
+                        
+                    </div>
+                    <div id="submitted">
+                        {%for message in messages%}
+                        {{message}}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About me -->
+        <div id="aboutme">
+            <div id="aboutme_heading" data-aos="fade-up">
+                <h2>About me</h2>
+            </div>
+            <div class="aboutme_row1" data-aos="fade-up">
+                <a target="_blank" href="https://en.wikipedia.org/wiki/You_(Time_Person_of_the_Year)">
+                    <div class="aboutme_item" id="times_2006">
+                        <div class="aboutme_svg"><i class="fas fa-2x fa-book-open"></i></div>
+                        <h2>Person of the Year</h2>
+                        <p>Declared person of the year by times magazine in 2006</p>
+                        <div class="aboutme_svg_arrow" id="arrow-1"><i class="fas fa-2x fa-arrow-right"></i></div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://drive.google.com/drive/folders/1QRTN5TRrTweTED8A69xCLFORuUKT1fWp?usp=sharing">
+                    <div class="aboutme_item" id="times_2006">
+                        <div class="aboutme_svg"><i class="fas fa-2x  fa-user-graduate"></i></div>
+                        <h2 id="test">Courses and Trainings</h2>
+                        <p>I have done multiple courses and virtual Internships from different organizations such as Microsoft, Amazon, Goldman Sachs, etc. </p>
+                        <div class="aboutme_svg_arrow" id="arrow-2"><i style="margin-top:-40px;" class="fas fa-2x fa-arrow-right"></i></div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://en.wikipedia.org/wiki/Operating_system">
+                    <div class="aboutme_item" id="times_2006">
+                        <div class="aboutme_svg"><i class="fab fa-2x fa-ubuntu"></i></div>
+                        <h2>Operating systems</h2>
+                        <p>I have worked on Windows, Ubuntu, Kali linux etc</p>
+                        <div class="aboutme_svg_arrow" id="arrow-3"><i class="fas fa-2x fa-arrow-right"></i></div>
+                    </div>
+                </a>
+            </div>
+            <div class="aboutme_row2" data-aos="fade-up">
+                <a target="_blank" href="https://www.instagram.com/jayant_khanna1/">
+                    <div class="aboutme_item" id="times_2006">
+                        <div class="aboutme_svg"><i class="fas fa-2x fa-table-tennis"></i></div>
+                        <h2>My Hobbies</h2>
+                        <p>My hobies are drawing, cooking, Travelling, Movies and Series</p>
+                        <div class="aboutme_svg_arrow" id="arrow-4"><i class="fas fa-2x fa-arrow-right"></i></div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)">
+                    <div class="aboutme_item" id="times_2006">
+                        <div class="aboutme_svg"><i class="fas fa-2x fa-user-friends"></i></div>
+                        <h2>Position of responsibility</h2>
+                        <p>Represented my college at state level in Smart India Hackathon leading a team of 6</p>
+                        <div class="aboutme_svg_arrow" id="arrow-5"><i class="fas fa-2x fa-arrow-right"></i></div>
+                    </div>
+                </a>
+                <a target="_blank" href="password_find">
+                    <div class="aboutme_item" id="times_2006">
+                        <div class="aboutme_svg"><i class="far fa-2x fa-lightbulb"></i></div>
+                        <h2>Cyber Security</h2>
+                        <p>I am interested in Ethical Hacking and Social Engineering attacks.</p>
+                        <div class="aboutme_svg_arrow" id="arrow-6"><i class="fas fa-2x fa-arrow-right"></i></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="footer">
+            {%include 'footer.html'%}
+            {%block content4%}
+            {%endblock%}
+        </div>
+        <!-- JS files attached -->
+        <script src="{%static 'js/index.js'%}"></script>
+        <!-- AOS -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+            AOS.init({
+                duration: 900,
+                offset: 200,
+                once:true,
+            })
+        </script>
+    </body>
+</html>

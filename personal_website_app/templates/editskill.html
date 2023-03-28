@@ -1,0 +1,158 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title -->
+    <title>Skills</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Local styling -->
+    <link rel="stylesheet" href="{%static 'css/private.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base_private.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+     
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #m4,#s4,#main4{
+            color: #ff014f !important;
+        }
+        #m1,#s1,#main1{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+     <div>
+        {%include 'header_private.html'%}
+        {%block content5%}
+        {%endblock%}
+    </div>
+
+    <!-- education table -->
+    <div id="folders">
+        <div id="present_folders">
+            <input type="text" id="folder-search" placeholder="Enter what you want to search">
+            <table id="table" class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                {%for x in skill%}
+                  <tr>
+                    <td onclick="editskill('{{x.id}}','{{x.name}}','{{x.per}}')" data-toggle="modal" data-target="#edit-job" style="cursor: pointer;"><i class="fas fa-2x fa-database"></i></i>&nbsp;&nbsp;<label style="cursor: pointer;">{{x.name}}</label></td> 
+                    <td onclick="delskillmodal('{{x.name}}')"><i style="cursor: pointer;" class="far fa-trash-alt"></i></td>
+                  </tr>
+                {%endfor%}
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div>
+        {%include 'footer_private.html'%}
+        {%block content6%}
+        {%endblock%}
+    </div>
+
+    <!-- Modal for Editing Education -->
+    <div class="modal fade" id="edit-job" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Upload file</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form action="editskilldata" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input type="text" readonly name="skillid" class="education-input" id="skillid"><br>
+                        <input required type="text" placeholder="Enter Name" name="name" class="education-input" id="name-skill"><br>
+                        <input required type="text" placeholder="Enter Percentage" name="per" class="education-input" id="skillper">
+                        <input type="submit" value="Save" id="file-save">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Deleting Education -->
+    <div id="delskill" class="modal">
+        <div class="modal-dialog" id="modal-content" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Skill</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span onclick="close_modal()" aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="enter-name"></div>
+                    <p id="delete_text">Are you sure you want to delete '<span id="skill_data_name"></span>'</p>
+                    <input onclick="delskill()" type="submit" value="Delete" id="folder-save">
+                </div>
+                <div class="modal-footer">
+                <button type="button" onclick="close_modal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{%static 'js/private.js'%}"></script>
+    <script>
+        function editskill(id,name,per){
+            document.getElementById('skillid').value=id;
+            document.getElementById('name-skill').value=name;
+            document.getElementById('skillper').value=per;
+        }
+        function delskill(){
+            id=document.getElementById('skill_data_name').innerHTML;
+            $.ajax({
+                type: "POST",
+                url: 'delskilldata',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    id: id},
+                success: function(data) {
+                  location.reload();
+                }
+              });
+        }
+        function delskillmodal(id){
+            document.getElementById('delskill').style.display='block';
+            document.getElementById('skill_data_name').innerHTML=id;
+        }
+        function close_modal(){
+            document.getElementById('delskill').style.display='none';
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('editfoldermodal')) {
+                document.getElementById('deljob').style.display='none';
+            }
+        }
+    </script>
+</body>
+</html>

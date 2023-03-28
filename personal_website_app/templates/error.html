@@ -1,0 +1,47 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Error</title>
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+     
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <style>
+        body,i{
+            display: flex;
+            justify-content: center;
+        }
+        i{
+            margin-left: 40%;
+        }
+        div{
+            margin-top: 15%;
+        }
+        p{
+            color: #ff014f;
+            font-size: 50px;
+        }
+        i{
+            color: #ff014f;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <i class="fas fa-6x fa-ghost"></i>
+        <p>Some error occured !!</p>
+    </div>
+    
+</body>
+</html>

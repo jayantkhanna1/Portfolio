@@ -1,0 +1,34 @@
+{%load static%}
+{%block content4%}
+<div id="footer-template" data-aos="fade-up">
+    <div id="left-footer">
+        <div id="mypic-footer">
+           <a href="#home"><img src="{%static 'images/header_left.jpg'%}" alt="error"></a> 
+        </div>
+        <h2>Jayant Khanna</h2><br>
+        <div id="contact-me-links">
+            <div id="insta" onclick="insta()"><i class="fab fa-instagram"></i></div>
+            <div id="github" onclick="github()"><i class="fab fa-github"></i></div>
+            <div id="linkedln" onclick="linkedln()"><i class="fab fa-linkedin-in"></i></div>
+        </div>
+    </div>
+    <div id="footer-links">
+        <p>LINKS:</p>
+        <div id="footer-links-flex">
+            <div id="footer-links-flex-left">
+                <a href="#home" onclick="change_col(1)" >Home</a><br>
+                <a href="#expierence" onclick="change_col(2)">Expierence</a><br>
+                <a href="#resume" onclick="change_col(3)">Resume</a><br>
+            </div>
+            <div id="footer-links-flex-right">
+                <a href="#pricing" onclick="change_col(4)">Pricing</a><br>
+                <a href="#contact" onclick="change_col(6)">Contact me</a><br>
+                <a href="#aboutme" onclick="change_col(5)">About me</a><br>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="copyright">
+    &copy;2021.This website and its rights are owned by Jayant Khanna
+</div>
+{%endblock%}

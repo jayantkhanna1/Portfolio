@@ -1,0 +1,133 @@
+.contact-label{
+    font-size: 14px;
+    color: #a0a8b3;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
+.contact-input{
+    outline: none;
+    background-color: #191b1e;
+    border-radius: 6px;
+    height: 55px;
+    border: 2px solid #191b1e;
+    padding: 0 15px;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #c4cfde;;
+    box-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    width: 90%;
+}
+#contact-me-submit{
+    text-decoration: none;
+    box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+    background:linear-gradient(to right bottom, #212428, #16181c);
+    color: #f02981;
+    padding: 20px 60px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 90px;
+    font-family: sans-serif;
+    text-align: center;
+    transition: top ease 0.7s;
+    position: relative;
+    top: 0;
+    width: 95%;
+    outline: none;
+}
+#contact-me-submit:hover{
+    top: -7px;
+    background:linear-gradient(to left top, #212428, #16181c);
+}
+#form,#passwords{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.contact-input:focus{
+    transition: 0.3s;
+    border: 2px solid #fe1f4f;
+}
+#form div>h2{
+    text-align: center;
+    font-size: 50px;
+    max-width: 600px;
+    color: white;
+    margin-bottom: 70px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+.contact-form-flex{
+    display: flex;
+}
+#fname{
+    width: 80%;
+    margin-right: 60px;
+}
+#lname
+{
+    width: 100%;
+}
+#date{
+    width: 100px;
+    margin-right: 55px;
+}
+#month{
+    width: 150px;
+    margin-right: 55px;
+}
+#year{
+    width: 200px;
+}
+#information{
+    margin-left: 5%;
+    color: #fe1f4f;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.2em;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    max-width: 500px;
+}
+@media screen and (max-width: 500px) {
+    #contact-form-flex-1{
+        flex-direction: column;
+    }
+    .contact-form-flex{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #lname,#fname{
+        width:95%;
+    }
+    #date,#month,#year{
+        width: 75px;
+        margin-right: 24px;
+    }
+    #contact-me-submit{
+        width:100%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #form div>h2{
+        text-align: center;
+        font-size: 40px;
+        max-width: 300px;
+        color: white;
+        margin-bottom: 70px;
+        text-decoration: none;
+        font-weight: 600;
+        font-family: sans-serif;
+    }
+}

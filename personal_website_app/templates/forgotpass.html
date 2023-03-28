@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>OTP</title>
+
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <<div>
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+    </div>
+    <div id="login-form">
+        <h2>Forgot Password</h2>
+        <p>This is a private space for the owner of this site</p>
+        <p id="pass-error"></p>
+        <form action="otp" onsubmit="return checkotp('{{otp}}')" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <input type="number" id="otp" name="otp" required placeholder="Enter otp sent to your site"><br>
+            <input type="submit" value="Proceed">
+        </form>
+        <a href="privatespace_login">back to login</a>
+        <a href="index">Back to main page</a>
+    </div>
+    <div id="footer">
+        {%include 'footer.html'%}
+        {%block content4%}
+        {%endblock%}
+    </div>
+    <script>
+        function checkotp(otp){
+            if(document.getElementById('otp').value==otp){
+                return true;
+            }
+            else{
+                document.getElementById('pass-error').innerHTML="Wrong OTP!!"
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

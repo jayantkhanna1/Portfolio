@@ -1,0 +1,74 @@
+{%load static%}
+{%block content5%}
+<div id="header">
+    <div id="left">
+        <div id="mypic">
+            <img src="{%static 'images/header_left.jpg'%}" alt="error">
+        </div>
+        <h2>Jayant Khanna</h2>
+    </div>
+    <div id="right">
+        <a href="privatespace" id="main1" style="color: #ff014f;" onclick="change_col(1)">Private space</a>
+        <a href="javascript:void(0)" class="education_header" id="main2" data-toggle="modal" data-target="#education" onclick="change_col(2)">Education</a>
+        <a href="javascript:void(0)" id="main3" onclick="change_col(3)" data-toggle="modal" data-target="#job">Job</a>
+        <a href="javascript:void(0)" id="main4" onclick="change_col(4)" data-toggle="modal" data-target="#skills">Skills</a>
+        <a href="javascript:void(0)" id="main5" onclick="change_col(5)" data-toggle="modal" data-target="#accomplishments">Accomplishments</a>
+        <a href="websitepage" id="main7" onclick="change_col(7)">Websites</a>
+        <a href="index" class="private" id="main6" onclick="change_col(6)">Home</a>
+    </div>
+</div>
+<div id="header-sticky">
+    <div id="left">
+        <div id="mypic">
+            <img src="{%static 'images/header_left.jpg'%}" alt="error">
+        </div>
+        <h2>Jayant Khanna</h2>
+    </div>
+    <div id="right">
+        <a href="privatespace" id="s1" style="color: #ff014f;" onclick="change_col(1)">Private space</a>
+        <a  href="javascript:void(0)" class="education_header" data-toggle="modal" data-target="#education" id="s2" onclick="change_col(2)">Education</a>
+        <a href="#" id="s3" onclick="change_col(3)" data-toggle="modal" data-target="#job">Job</a>
+        <a href="#" id="s4" onclick="change_col(4)" data-toggle="modal" data-target="#skills">Skills</a>
+        <a href="#" id="s5" onclick="change_col(5)" data-toggle="modal" data-target="#accomplishments">Accomplishments</a>
+        <a href="websitepage" id="s7" onclick="change_col(7)">Websites</a>
+        <a href="index" class="private" id="s6" onclick="change_col(6)">Home</a>
+    </div>
+</div>
+<div id="header_for_mobile">
+    <div id="mobile_view_open_menu">
+        <div id="mobile_left">
+            <div id="mypic">
+                <img src="{%static 'images/header_left.jpg'%}" alt="error">
+            </div>
+            <h2>Jayant Khanna</h2>
+        </div>
+        <span id="mobile_sidenav_open" style="color: #ff014f;" onclick="openNav()">&#9776;</span>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div id="pic-close">
+            <div id="mobile_left">
+                <div id="mypic">
+                    <img src="{%static 'images/header_left.jpg'%}" alt="error">
+                </div>
+                <h2>Jayant Khanna</h2>
+            </div>
+            <a href="javascript:void(0)" style="color: #ff014f;" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <div id="mob-info-nav">
+            <p>Hello, I am Jayant Khanna a Django Full-stack developer</p>
+        </div>
+        <hr style="width: 80%;margin-left:30px;margin-bottom:35px;color:rgba(255, 255, 255, 0.1);">
+        <div id="links-mob-nav">
+            <a href="privatespace" id="m1" style="color: #ff014f;" onclick="change_col(1)">Private space</a>
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#education" id="m2" onclick="change_col(2)">Education</a>
+            <a href="#" id="m3" data-toggle="modal" data-target="#job" onclick="change_col(3)">Job</a>
+            <a href="#" id="m4" onclick="change_col(4)" data-toggle="modal" data-target="#skills">Skills</a>
+            <a href="#" id="m5" onclick="change_col(5)" data-toggle="modal" data-target="#accomplishments">Accomplishments</a>
+            <a href="websitepage" id="m7" onclick="change_col(7)">Websites</a>
+            <a href="index" class="private" id="m6" onclick="change_col(6)">Home</a>
+        </div>
+    </div>
+</div>
+<script src="{%static 'js/private_header.js'%}">
+</script>
+{%endblock%}

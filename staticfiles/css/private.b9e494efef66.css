@@ -1,0 +1,172 @@
+#folders,.websites{
+    margin-right: 5%;
+    margin-left: 7%;
+    margin-top: 50px;
+}
+.websites{
+    padding-bottom: 40px;
+    border-bottom:2px solid black;
+}
+.websites h2{
+    color: white;
+    margin-bottom: 30px;
+}
+#newfolder a,#newfile a,#deleteallfiles a,.newwebsite a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+#newfolder a:hover,#newfile a:hover,#deleteallfiles a:hover,.newwebsite a:hover{
+    transition: 0.2s;
+    color: #fe1f4f;
+}
+#newfolder,#newfile,#deleteallfiles,.newwebsite{
+    margin-right: 30px;
+    padding-right: -10%;
+    margin-bottom: 50px;
+    padding: 15px 25px;
+    width: 250px;
+    border-radius: 12px;
+    border: 2px solid #1c1e22;
+}
+.newwebsite{
+    width: 300px;
+}
+#folder-search{
+    width: 100%;
+    margin-bottom:30px;
+    height: 38px;
+    padding: 10px;
+    background-color: #2c3034;
+    color: white;
+    outline: none;
+    border: none;
+}
+tbody>tr:hover, tbody>tr:hover .download_file{
+    transition: 0.2s;
+    color: #fe1f4f;
+    text-decoration: none;
+}
+.modal-content{
+    background:linear-gradient(to right bottom, #212428, #16181c); ;
+}
+.modal-header{
+    color: white;
+}
+.close span{
+    color: white;
+}
+#folder-name,#old-folder-name{
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    height: 38px;
+    padding: 10px;
+    background-color: #2c3034;
+    color: white;
+    outline: none;
+    border: none;
+}
+#new-folder-name,.education-input{
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 15px;
+    height: 38px;
+    padding: 10px;
+    background-color: #2c3034;
+    color: white;
+    outline: none;
+    border: none;
+}
+#folder-save,#file-save{
+    margin-left: 5%;
+    width: 90%;
+    background-color: #2c3034;
+    color: #fe1f4f;
+    outline: none;
+    height: 35px;
+    border: none;
+}
+#message,#enter-name,#error-skill{
+    margin-bottom: 30px;
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+    border: 1px solid red;
+    background-color: #FFBABA;
+}
+#error-skill{
+    display: none;
+}
+#enter-name{
+    margin-bottom: 15px;
+    display: none;
+}
+#modal-content{
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+  
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+.modal{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#delete_text{
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+#file-upload{
+    margin-bottom: 20px;
+    margin-left: 40%;
+    color: #fe1f4f;
+}
+.download_file{
+    color: white;
+    text-decoration: none;
+}
+.edit_database{
+    color: #fe1f4f;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 17px;
+    margin-top: 15px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+.edit_database:hover{
+    color: #fe1f4f;
+}
+#accomp-img,
+#static-img{
+    padding-bottom: 40px;
+}
+#folders-sub{
+    display: flex;
+}
+#table_body{
+    width: 100%;
+}
+@media screen and (max-width: 500px) {
+    #folders-sub{
+        flex-direction: column;
+    }
+}

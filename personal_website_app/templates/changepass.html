@@ -1,0 +1,83 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Change Password</title>
+
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+
+    <!-- Font awesome -->
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @media screen and (max-width: 500px) {
+            #showpass,#hidepass{
+                position: absolute;
+                top: 480px;
+                left: 80%;
+                color: #f02981;
+            }
+        }
+    </style>
+</head>
+<body>
+    <<div>
+        {%include 'header.html'%}
+        {%block content1%}
+        {%endblock%}
+    </div>
+    <div id="login-form">
+        <h2>Forgot Password</h2>
+        <p>This is a private space for the owner of this site</p>
+        <p id="pass-error"></p>
+        <form action="changepass" onsubmit="return checkpass()" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            <input type="password" id="password1" name="password" required placeholder="Enter Password"><i onclick="showpass()" id="showpass" class="far fa-eye"></i><i onclick="hidepass()" id="hidepass" class="far fa-eye-slash"></i><br>
+            <input type="password" id="password2" name="cpassword" required placeholder="Confirm Password"><br>
+            <input type="submit" value="Change Password">
+        </form>
+        <a href="privatespace_login">back to login</a>
+        <a href="index">Back to main page</a>
+    </div>
+    <div id="footer">
+        {%include 'footer.html'%}
+        {%block content4%}
+        {%endblock%}
+    </div>
+    <script>
+        function checkpass(){
+           if( document.getElementById("password1").value==document.getElementById("password2").value){
+               return true;
+           }
+           else{
+            document.getElementById("pass-error").innerHTML="Password Mismatch"
+            return false;
+           }
+        }
+        function showpass(){
+            document.getElementById('password1').type='text';
+            document.getElementById('password2').type='text';
+            document.getElementById('showpass').style.display='none';
+            document.getElementById('hidepass').style.display='block';
+        }
+        function hidepass(){
+            document.getElementById('password1').type='password';
+            document.getElementById('password2').type='password';
+            document.getElementById('showpass').style.display='block';
+            document.getElementById('hidepass').style.display='none';
+        }
+    </script>
+</body>
+</html>

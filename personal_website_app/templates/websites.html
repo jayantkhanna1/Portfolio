@@ -1,0 +1,432 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Title -->
+        <title>Jayant</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- Local styling -->
+        <link rel="stylesheet" href="{%static 'css/private.css'%}">
+        <link rel="stylesheet" href="{%static 'css/base_private.css'%}">
+
+        <!-- Font awesome -->
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+        
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+        <style>
+            #m7,#s7,#main7{
+                color: #ff014f !important;
+            }
+            #m1,#s1,#main1{
+                color: white !important;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <div>
+            {%include 'header_private.html'%}
+            {%block content5%}
+            {%endblock%}
+        </div>
+         <!-- Folders -->
+    <div class="websites">
+        <h2>Static Websites</h2>
+        <!-- New folder addition -->
+        <div class="newwebsite">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#newstaticwebsite"><i class="fas fa-plus"></i>&nbsp;&nbsp;New Static website</a>
+        </div>
+        <!-- Error messages -->
+        {% if messages %}
+        <div id="message">
+            {%for message in messages%}
+            {{message}}
+            {%endfor%}
+        </div>
+        {%endif%}
+        <div id="present_folders">
+            <input type="text" id="folder-search" placeholder="Enter folder name to search">
+            <table id="table" class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                    {%for x in static%}
+                    <tr>
+                        <td><i class="fas fa-2x fa-database"></i>&nbsp;&nbsp;<label data-toggle="modal" data-target="#staticmodal" onclick="open_static_modal('{{x.id}}','{{x.name}}','{{x.url}}','{{x.desc}}','{{x.startdate}}','{{x.enddate}}')" style="cursor: pointer;">{{x.name}}</label></td>
+                        <td><i onclick="delete_static_modal('{{x.name}}')"  data-toggle="modal" data-target="#staticdelmodal" style="cursor: pointer;" class="far fa-trash-alt"></i></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="websites">
+        <h2>Animations</h2>
+        <!-- New folder addition -->
+        <div class="newwebsite">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#newanimations"><i class="fas fa-plus"></i>&nbsp;&nbsp;New Animations</a>
+        </div>
+        
+        <div id="present_folders">
+            <input type="text" id="folder-search" placeholder="Enter folder name to search">
+            <table id="table" class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                    {%for x in anim%}
+                    <tr>
+                        <td><i class="fas fa-2x fa-database"></i>&nbsp;&nbsp;<label data-toggle="modal" data-target="#animmodal" onclick="open_anim_modal('{{x.id}}','{{x.name}}','{{x.url}}','{{x.desc}}','{{x.startdate}}','{{x.enddate}}')" style="cursor: pointer;">{{x.name}}</label></td>
+                        <td><i onclick="delete_anim_modal('{{x.name}}')"  data-toggle="modal" data-target="#animdelmodal" style="cursor: pointer;" class="far fa-trash-alt"></i></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+    <div class="websites">
+        <h2>Full Stack Websites</h2>
+        <!-- New folder addition -->
+        <div class="newwebsite">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#newdynamic"><i class="fas fa-plus"></i>&nbsp;&nbsp;New Dynamic Website</a>
+        </div>
+        <div id="present_folders">
+            <input type="text" id="folder-search" placeholder="Enter folder name to search">
+            <table id="table" class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                    {%for x in dyno%}
+                    <tr>
+                        <td><i class="fas fa-2x fa-database"></i>&nbsp;&nbsp;<label data-toggle="modal" data-target="#dynomodal" onclick="open_dyno_modal('{{x.id}}','{{x.name}}','{{x.url}}','{{x.desc}}','{{x.startdate}}','{{x.enddate}}')" style="cursor: pointer;">{{x.name}}</label></td>
+                        <td><i onclick="delete_dyno_modal('{{x.name}}')"  data-toggle="modal" data-target="#dynodelmodal" style="cursor: pointer;" class="far fa-trash-alt"></i></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div>
+        {%include 'footer_private.html'%}
+        {%block content6%}
+        {%endblock%}
+    </div>
+
+
+    <!-- Modal for new Static websites -->
+    <div class="modal fade" id="newstaticwebsite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Static Websites</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                        <form action="addstatic" method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <input required type="text" placeholder="Enter Name" name="static-name" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Start Date" name="static-start" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter End Date" name="static-end" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Description" name="static-desc" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Url" name="static-url" class="education-input" ><br>
+                            <input required type="file" accept="image/*" name="static-img" class="education-input" ><br>
+                            <input type="submit" value="Upload" id="file-save">
+                        </form>
+                    </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Static websites edit-->
+    <div class="modal fade" id="staticmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Static Websites</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                    <form action="editstatic" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input required type="text" placeholder="Enter Name" name="static-id" id="static-id" class="education-input" readonly><br>
+                        <input required type="text" placeholder="Enter Name" name="static-name" id="static-name" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Start Date" name="static-start" id="static-start" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter End Date" name="static-end" id="static-end" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Description" id="static-desc" name="static-desc" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Url" id="static-url" name="static-url" class="education-input" ><br>
+                        <input type="submit" value="Save" id="file-save">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Static websites delete-->
+    <div class="modal fade" id="staticdelmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Static Websites</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                    <p id="delete_text">Are you sure you want to delete '<span id="static_del_name"></span>'</p>
+                    <input onclick="del_static()" type="submit" value="Delete" id="file-save">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal for new Animation websites -->
+    <div class="modal fade" id="newanimations" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Animations</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                        <form action="addanim" method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <input required type="text" placeholder="Enter Name" name="name" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Start Date" name="start" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter End Date" name="end" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Description" name="desc" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Url" name="url" class="education-input" ><br>
+                            <input required type="file" accept="image/*" name="img" class="education-input" ><br>
+                            <input type="submit" value="Upload" id="file-save">
+                        </form>
+                    </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Animations edit-->
+    <div class="modal fade" id="animmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Static Websites</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                    <form action="editanim" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input required type="text" placeholder="Enter Name" name="id" id="anim-id" class="education-input" readonly><br>
+                        <input required type="text" placeholder="Enter Name" name="name" id="anim-name" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Start Date" name="start" id="anim-start" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter End Date" name="end" id="anim-end" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Description" id="anim-desc" name="desc" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Url" id="anim-url" name="url" class="education-input" ><br>
+                        <input type="submit" value="Save" id="file-save">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Animations delete-->
+    <div class="modal fade" id="animdelmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Animations</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                    <p id="delete_text">Are you sure you want to delete '<span id="anim_del_name"></span>' Animation</p>
+                    <input onclick="del_anim()" type="submit" value="Delete" id="file-save">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Full stack modals -->
+    <!-- Modal for new Dynamic websites -->
+    <div class="modal fade" id="newdynamic" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Animations</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                        <form action="adddyno" method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <input required type="text" placeholder="Enter Name" name="name" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Start Date" name="start" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter End Date" name="end" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Description" name="desc" class="education-input" ><br>
+                            <input required type="text" placeholder="Enter Url" name="url" class="education-input" ><br>
+                            <input required type="file" accept="image/*" name="img" class="education-input" ><br>
+                            <input type="submit" value="Upload" id="file-save">
+                        </form>
+                    </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Dynamic edit-->
+    <div class="modal fade" id="dynomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Dynamic Websites</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                    <form action="editdyno" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input required type="text" placeholder="Enter Name" name="id" id="dyno-id" class="education-input" readonly><br>
+                        <input required type="text" placeholder="Enter Name" name="name" id="dyno-name" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Start Date" name="start" id="dyno-start" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter End Date" name="end" id="dyno-end" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Description" id="dyno-desc" name="desc" class="education-input" ><br>
+                        <input required type="text" placeholder="Enter Url" id="dyno-url" name="url" class="education-input" ><br>
+                        <input type="submit" value="Save" id="file-save">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Dynamic delete-->
+    <div class="modal fade" id="dynodelmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Animations</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div id="error-skill"></div>
+                    <p id="delete_text">Are you sure you want to delete '<span id="dyno_del_name"></span>' Animation</p>
+                    <input onclick="del_dyno()" type="submit" value="Delete" id="file-save">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{%static 'js/private.js'%}"></script>
+    <script>
+        function del_static(){
+            name=document.getElementById('static_del_name').innerHTML;
+            $.ajax({
+                type: "POST",
+                url: 'delstatic',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    name: name},
+                success: function(data) {
+                  location.reload();
+                }
+              });
+        }
+        function del_anim(){
+            name=document.getElementById('anim_del_name').innerHTML;
+            $.ajax({
+                type: "POST",
+                url: 'delanim',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    name: name},
+                success: function(data) {
+                  location.reload();
+                }
+              });
+        }
+        function del_dyno(){
+            name=document.getElementById('dyno_del_name').innerHTML;
+            $.ajax({
+                type: "POST",
+                url: 'deldyno',   
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+                    name: name},
+                success: function(data) {
+                  location.reload();
+                }
+              });
+        }
+    </script>
+    </body>
+ </html>

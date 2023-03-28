@@ -1,0 +1,74 @@
+{%load static%}
+{%block content1%}
+<div id="header">
+    <div id="left">
+        <div id="mypic">
+            <img src="{%static 'images/header_left.jpg'%}" alt="error">
+        </div>
+        <h2>Jayant Khanna</h2>
+    </div>
+    <div id="right">
+        <a href="index" id="1" class="home" style="color: #ff014f;" onclick="change_col(1)">Home</a>
+        <a href="#expierence" id="2" onclick="change_col(2)">Expierence</a>
+        <a href="#resume" id="3" onclick="change_col(3)">Resume</a>
+        <a href="#pricing" id="4" onclick="change_col(4)">Freelancing</a>
+        <a href="#contact" id="6" onclick="change_col(6)">Contact me</a>
+        <a href="#aboutme" id="5" onclick="change_col(5)">About me</a>
+        <a href="privatespace_login" class="private" id="7" onclick="change_col(7)">Private space</a>
+    </div>
+</div>
+<div id="header-sticky">
+    <div id="left">
+        <div id="mypic">
+            <img src="{%static 'images/header_left.jpg'%}" alt="error">
+        </div>
+        <h2>Jayant Khanna</h2>
+    </div>
+    <div id="right">
+        <a href="index" id="1s" style="color: #ff014f;" onclick="change_col(1)">Home</a>
+        <a href="#expierence" id="2s" onclick="change_col(2)">Expierence</a>
+        <a href="#resume" id="3s" onclick="change_col(3)">Resume</a>
+        <a href="#pricing" id="4s" onclick="change_col(4)">Freelancing</a>
+        <a href="#contact" id="6s" onclick="change_col(6)">Contact me</a>
+        <a href="#aboutme" id="5s" onclick="change_col(5)">About me</a>
+        <a href="privatespace_login" class="private" id="7s" onclick="change_col(7)">Private space</a>
+    </div>
+</div>
+<div id="header_for_mobile">
+    <div id="mobile_view_open_menu">
+        <div id="mobile_left">
+            <div id="mypic">
+                <img src="{%static 'images/header_left.jpg'%}" alt="error">
+            </div>
+            <h2>Jayant Khanna</h2>
+        </div>
+        <span id="mobile_sidenav_open" style="color: #ff014f;" onclick="openNav()">&#9776;</span>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div id="pic-close">
+            <div id="mobile_left">
+                <div id="mypic">
+                    <img src="{%static 'images/header_left.jpg'%}" alt="error">
+                </div>
+                <h2>Jayant Khanna</h2>
+            </div>
+            <a href="javascript:void(0)" style="color: #ff014f;" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <div id="mob-info-nav">
+            <p>Hello, I am Jayant Khanna a Django Full-stack developer</p>
+        </div>
+        <hr style="width: 80%;margin-left:30px;margin-bottom:35px;color:rgba(255, 255, 255, 0.1);">
+        <div id="links-mob-nav">
+            <a id="1m" href="index" style="color: #ff014f;" onclick="change_col(1)">Home</a>
+            <a id="2m" href="#expierence" onclick="change_col(2)">Expierence</a>
+            <a id="3m" href="#resume" onclick="change_col(3)">Resume</a>
+            <a id="4m" href="#pricing" onclick="change_col(4)">Freelancing</a>
+            <a id="6m" href="#contact" onclick="change_col(6)">Contact me</a>
+            <a id="5m" href="#aboutme" onclick="change_col(5)">About me</a>
+            <a id="7m" class="private" href="privatespace_login" onclick="change_col(7)">Private space</a>
+        </div>
+    </div>
+</div>
+<script src="{%static 'js/header.js'%}">
+</script>
+{%endblock%}
